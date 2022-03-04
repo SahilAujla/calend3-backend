@@ -8,7 +8,7 @@ const fromPhone = process.env.FROMPHONE;
 const toPhone = process.env.TOPHONE;
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8080;
 
 app.use(bodyParser.json());
 app.listen(PORT, () => console.log(`Running on port ${PORT}`));
