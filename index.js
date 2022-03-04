@@ -8,13 +8,25 @@ const fromPhone = process.env.FROMPHONE;
 const toPhone = process.env.TOPHONE;
 
 const app = express();
-const PORT = 3100;
+const PORT = process.env.PORT || 5000;
 
 app.use(bodyParser.json());
 app.listen(PORT, () => console.log(`Running on port ${PORT}`));
 
 // set up twilio client
 const client = require("twilio")(accountSid, authToken);
+
+app.get("/hello", (request, response) => {
+  console.log(request.body);
+
+  response.send("hi!");
+});
+
+app.get("/", (request, response) => {
+  console.log(request.body);
+
+  response.send("hi!");
+});
 
 app.post("/webhook", (request, response) => {
   console.log(request.body);
